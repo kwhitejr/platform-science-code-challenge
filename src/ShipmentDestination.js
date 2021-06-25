@@ -1,4 +1,4 @@
-const PriorityQueue = require("./PriorityQueue");
+const PriorityQueue = require('./PriorityQueue');
 
 class ShipmentDestination {
   constructor({ address }) {
@@ -14,8 +14,9 @@ class ShipmentDestination {
     const suitabilityScore = this.calcDriverSuitabilityScore(driver);
 
     // Update Driver hashmap and add Driver to ShipmentDestination's priority queue
-    driver.addressToSuitabilityMap[this.address] = suitabilityScore
-    this.driversBySuitability.enqueue(driver.name, driver.addressToSuitabilityMap[this.address])
+    driver.setSuitability({ [this.address]: suitabilityScore });
+    driver.addressesByHighestScore.enqueue(this.address, suitabilityScore);
+    this.driversBySuitability.enqueue(driver.name, driver.addressToSuitabilityMap[this.address]);
   }
 
   calcDriverSuitabilityScore(driver) {
@@ -32,15 +33,15 @@ class ShipmentDestination {
   }
 
   calcEvenScore(name) {
-    const vowelsInName = name.split("")
-      .filter(letter => ['a', 'e', 'i', 'o', 'u'].includes(letter))
+    const vowelsInName = name.split('')
+      .filter((letter) => ['a', 'e', 'i', 'o', 'u'].includes(letter))
       .length;
     return vowelsInName * 1.5;
   }
 
   calcOddScore(name) {
-    const consonantsInName = name.split("")
-      .filter(letter => !['a', 'e', 'i', 'o', 'u'].includes(letter))
+    const consonantsInName = name.split('')
+      .filter((letter) => !['a', 'e', 'i', 'o', 'u'].includes(letter))
       .length;
     return consonantsInName;
   }

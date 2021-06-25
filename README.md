@@ -8,12 +8,18 @@ Environment requirements:
 
 From command line:
 ```bash
-
+# Install Dependencies
 $ npm install && npm test
 
 or
 
 $ npm run rudie-i-got-you-bro
+
+# Run with test inputs
+$ npm start -- --destinations-file="../test/shipmentDestinations.txt" --drivers-file="../test/drivers.txt"
+
+# Run with custom inputs
+$ npm start -- --destinations-file="PATH_TO_FILE" --drivers-file="PATH_TO_FILE"
 ```
 
 ## Problem Statement
