@@ -17,6 +17,12 @@ const match = (shipmentDestinations, drivers) => {
     assignments[destination.address] = destination.driversBySuitability.values[0]; // eslint-disable-line
   });
 
+  // Need to...
+  // 1. determine which top-scoring drivers are duplicates
+  // 2. keep duplicate with highest score
+  // 3. assign next highest score for other duplicates
+  // 4. repeat until no duplicates
+
   const totalScore = Object.values(assignments).reduce((total, assignment) => total + assignment.priority, 0);
   return [totalScore, assignments];
 };
