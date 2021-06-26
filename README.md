@@ -25,7 +25,7 @@ $ npm start -- --destinations-file="PATH_TO_FILE" --drivers-file="PATH_TO_FILE"
 ## Mea Culpa
 I was not able to completely resolve the necessary algorithm.
 
-I can correctly resolve the driver scores and therefore their priority vis-a-vis the addresses, and the priority of each address vis-a-vis each driver, but I had trouble traversing these priority queues to correctly determine the optimal assignments.
+I can correctly resolve the driver scores and therefore their priority vis-a-vis the addresses, and the priority of each address vis-a-vis each driver, but I had trouble traversing these priority queues to correctly determine the optimal assignments without assigning a driver more than once.
 
 I have a feeling that it has something to do with Dijkstra, but I could not quite get there on my own.
 
