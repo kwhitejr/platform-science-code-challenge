@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "_mocha test/**/*.spec.js",
-    "start": "node src/index.js"
+    "start": "node src/index.js",
+    "rudie-i-got-you-bro": "npm install && npm test && echo '(☞ﾟヮﾟ)☞'"
   },
   "repository": {
     "type": "git",
