@@ -45,7 +45,7 @@ describe('ShipmentDestination', () => {
       expect(score).to.equal(9); // 4 * 1.5 * 1.5
     });
 
-    it('should return the correct score with a 1.5 multiplier when the length of the destination and driver name are equal (even)', () => {
+    it('should return the correct score with a 1.5 multiplier when the length of the destination and driver name are equal (odd)', () => {
       const name = 'kevin'; // odd, length 5, 3 consonants
       const driver = new Driver({ name });
 
