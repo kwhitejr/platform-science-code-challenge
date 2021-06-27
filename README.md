@@ -22,14 +22,11 @@ $ npm start -- --destinations-file="../test/shipmentDestinations.txt" --drivers-
 $ npm start -- --destinations-file="PATH_TO_FILE" --drivers-file="PATH_TO_FILE"
 ```
 
-## Mea Culpa
-I was not able to completely resolve the necessary algorithm.
-
-I can correctly resolve the driver scores and therefore their priority vis-a-vis the addresses, and the priority of each address vis-a-vis each driver, but I had trouble traversing these priority queues to correctly determine the optimal assignments without assigning a driver more than once.
-
-I have a feeling that it has something to do with Stable Marriage Problem and the Gale-Shapley algorithm, but I haven't sorted out a Javascript implementation yet.
-
-There is a single breaking test that should pass when the `match` algorithm is correctly implemented.
+## Brief Overview
+* `ShipmentDestination` class maintains an address and a priority queue of drivers according to their suitability score. This class also performs suitability score calculations.
+* `Driver` class maintains the driver name and a priority queue of addresses according to the driver's suitability score for each address. For convenience, this class also maintains a hashmap of the addresses to suitabilty scores.
+* `match()` is a function that performs a stable matching algorithm against an array of `ShipmentDestination`'s and `Driver`'s.
+* `index.js` provides a simple command line interface to run the same from text file inputs.
 
 ## Problem Statement
 Our sales team has just struck a deal with Acme Inc to become the exclusive provider for routing their product shipments via 3rd party trucking fleets. The catch is that we can only route one shipment to one driver per day.
