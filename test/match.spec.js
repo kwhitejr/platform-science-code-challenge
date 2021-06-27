@@ -21,7 +21,7 @@ describe('match.js', () => {
     it('should return the assignments that result in the highest total score', () => {
       const shipmentDestinations = [
         new ShipmentDestination({ address: 'court' }),
-        new ShipmentDestination({ address: 'street' }),
+        new ShipmentDestination({ address: 'streets' }),
         new ShipmentDestination({ address: 'avenue' }),
       ];
       const drivers = [
@@ -29,13 +29,14 @@ describe('match.js', () => {
         new Driver({ name: 'Amanda' }),
         new Driver({ name: 'Keihanaikukauakahihuliheekahaunaele' }),
       ];
+
       const [totalScore, assignments] = match(shipmentDestinations, drivers);
 
-      expect(totalScore).to.equal(42.75); // 31.5 + 4.5 + 6.75
+      expect(totalScore).to.equal(39); // 31.5 + 4.5 + 3
       expect(assignments).to.deep.equal({
-        court: { value: 'kevin', priority: 4.5 },
-        street: { value: 'amanda', priority: 6.75 },
-        avenue: { value: 'keihanaikukauakahihuliheekahaunaele', priority: 31.5 },
+        court: 'kevin',
+        streets: 'amanda',
+        avenue: 'keihanaikukauakahihuliheekahaunaele',
       });
     });
   });
